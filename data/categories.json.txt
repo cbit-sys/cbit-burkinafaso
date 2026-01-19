@@ -1,0 +1,4 @@
+{
+  "categories": ["ordinateurs", "imprimantes", "composants"],
+  "subcategories": []
+}

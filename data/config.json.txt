@@ -1,0 +1,7 @@
+{
+  "lastUpdate": "2024-01-01",
+  "whatsapp": "+22676607320",
+  "phone": "+226 76 60 73 20",
+  "email": "contact@cbit.com",
+  "seuilStock": 5
+}

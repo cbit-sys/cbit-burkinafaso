@@ -1,0 +1,13 @@
+// functions/save-data.js
+exports.handler = async function(event, context) {
+    // Cette fonction ne peut PAS modifier les fichiers sur Netlify
+    // Car Netlify est en lecture seule après déploiement
+    
+    return {
+        statusCode: 200,
+        body: JSON.stringify({ 
+            message: "Cette fonction ne peut pas sauvegarder",
+            note: "Utilisez la méthode copier-coller à la place"
+        })
+    };
+};
