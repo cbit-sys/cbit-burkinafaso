@@ -2563,15 +2563,13 @@ textarea.form-control {
 
 // Configuration Netlify
 const SERVER_URL = "https://cbit-burkinafaso.netlify.app";
-const NETLIFY_DEPLOY_URL = "https://cbit-burkinafaso.netlify.app";
 
 // URLs des données
 const CLIENT_DATA_URLS = {
-    products: `${SERVER_URL}/data/products.json`,
-    categories: `${SERVER_URL}/data/categories.json`,
-    config: `${SERVER_URL}/data/config.json`,
-    commandes: `${SERVER_URL}/data/commandes.json`,
-    updateSignal: `${SERVER_URL}/data/update-signal.json`
+    products: "https://cbit-burkinafaso.netlify.app/data/products.json",
+    categories: "https://cbit-burkinafaso.netlify.app/data/categories.json",
+    config: "https://cbit-burkinafaso.netlify.app/data/config.json",
+    commandes: "https://cbit-burkinafaso.netlify.app/data/commandes.json"
 };
 
 let produits = [];
@@ -2604,7 +2602,7 @@ async function chargerDonnees() {
     
     try {
         // 1. Charger PRODUITS depuis serveur
-        const produitsResponse = await fetch(`${SERVER_URL}/data/products.json?v=${Date.now()}`);
+        const produitsResponse = await fetch("https://cbit-burkinafaso.netlify.app/data/products.json?v=" + Date.now());
         if (produitsResponse.ok) {
             const data = await produitsResponse.json();
             produits = data.products || [];
@@ -2612,21 +2610,21 @@ async function chargerDonnees() {
         }
 
         // 2. Charger CATÉGORIES depuis serveur
-        const categoriesResponse = await fetch(`${SERVER_URL}/data/categories.json`);
+        const categoriesResponse = await fetch("https://cbit-burkinafaso.netlify.app/data/categories.json");
         if (categoriesResponse.ok) {
             const catData = await categoriesResponse.json();
             categories = catData.categories || [];
         }
 
         // 3. Charger COMMANDES depuis serveur
-        const commandesResponse = await fetch(`${SERVER_URL}/data/commandes.json`);
+        const commandesResponse = await fetch("https://cbit-burkinafaso.netlify.app/data/commandes.json");
         if (commandesResponse.ok) {
             const cmdData = await commandesResponse.json();
             commandes = cmdData.commandes || [];
         }
 
         // 4. Charger PARAMÈTRES
-        const configResponse = await fetch(`${SERVER_URL}/data/config.json`);
+        const configResponse = await fetch("https://cbit-burkinafaso.netlify.app/data/config.json");
         if (configResponse.ok) {
             const config = await configResponse.json();
             // Appliquer les paramètres
@@ -4175,8 +4173,7 @@ function afficherProduits() {
             ${produit.isPromo ? 
                 `<div class="promotion-price">
                     <span class="ancien-prix">${produit.price.toLocaleString()} FCFA</span>
-                    <span class="product-price">${produit.promoPrice.toLocaleString()} FCFA</span>
-                </div>` :
+                    <span class="product-price">${produit.promoPrice.toLocaleString()} FCFA</span>` :
                 `<div class="product-price">${produit.price.toLocaleString()} FCFA</div>`
             }
             <div class="product-description">${produit.description}</div>
